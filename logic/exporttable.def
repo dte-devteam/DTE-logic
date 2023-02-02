@@ -1,0 +1,5 @@
+LIBRARY "DTE logic v0"
+DESCRIPTION "DTE logic module provides logic and bit operations"
+EXPORTS
+	getfunctions	@1
+	gettypes		@2
