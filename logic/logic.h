@@ -8,36 +8,42 @@ using namespace functionfactory;
 namespace functions {
 	namespace logic {
 		namespace primitive {
+			struct primitive_logic : basicfunction {
+				using basicfunction::basicfunction;
+				bool environment_variables(std::vector<void*>* argumentspointer, uint64_t* errorcodepointer, char*& in_1, char*& in_2, char*& out, size_t& size);
+			};
 			//~, |, &, ^, ==, <, >
 			//constructors
 			struct bit_not : basicfunction {
 				using basicfunction::basicfunction;
 				void execute(std::vector<void*>* argumentspointer, uint64_t* errorcodepointer, bool forced, void* stream);
 			};
-			struct bit_or : basicfunction {
-				using basicfunction::basicfunction;
+			struct bit_or : primitive_logic {
+				using primitive_logic::primitive_logic;
 				void execute(std::vector<void*>* argumentspointer, uint64_t* errorcodepointer, bool forced, void* stream);
 			};
-			struct bit_and : basicfunction {
-				using basicfunction::basicfunction;
+			struct bit_and : primitive_logic {
+				using primitive_logic::primitive_logic;
 				void execute(std::vector<void*>* argumentspointer, uint64_t* errorcodepointer, bool forced, void* stream);
 			};
-			struct bit_xor : basicfunction {
-				using basicfunction::basicfunction;
+			struct bit_xor : primitive_logic {
+				using primitive_logic::primitive_logic;
 				void execute(std::vector<void*>* argumentspointer, uint64_t* errorcodepointer, bool forced, void* stream);
 			};
-			struct bit_equal : basicfunction {
-				using basicfunction::basicfunction;
+			/*
+			struct bit_equal : primitive_logic {
+				using primitive_logic::primitive_logic;
 				void execute(std::vector<void*>* argumentspointer, uint64_t* errorcodepointer, bool forced, void* stream);
 			};
-			struct bit_bigger : basicfunction {
-				using basicfunction::basicfunction;
+			struct bit_bigger : primitive_logic {
+				using primitive_logic::primitive_logic;
 				void execute(std::vector<void*>* argumentspointer, uint64_t* errorcodepointer, bool forced, void* stream);
 			};
-			struct bit_less : basicfunction {
-				using basicfunction::basicfunction;
+			struct bit_less : primitive_logic {
+				using primitive_logic::primitive_logic;
 				void execute(std::vector<void*>* argumentspointer, uint64_t* errorcodepointer, bool forced, void* stream);
 			};
+			*/
 			//instances
 			static bit_not bit_not_operator{
 				token_data::token_name_to_id(L"bit_not_operator"),	//name
@@ -74,6 +80,7 @@ namespace functions {
 					(void*)&defaultvalues::POINTER_SIZE
 				}
 			};
+			/*
 			static bit_equal bit_equal_operator{
 				token_data::token_name_to_id(L"bit_equal_operator"),	//name
 				{	//default values
@@ -101,6 +108,7 @@ namespace functions {
 					(void*)&defaultvalues::POINTER_SIZE
 				}
 			};
+			*/
 		}
 		namespace advanced {
 			//||, &&, >=, <=, !=, !
